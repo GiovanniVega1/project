@@ -19,7 +19,7 @@ public class CodificadoHill {
     ArrayList<String> palabrasCon=new ArrayList<String>();
     CodificadorTexto cifrador = new CodificadorTexto(palabrasSec, palabrasCon);
     ContadorDePalabras contadorPalabras=new ContadorDePalabras();
-    String nombreArchivo = "C:/Users/sears/OneDrive/Documentos/NetBeansProjects/proyectoFantasma/wcPar/src/contadorpalabras/";
+    String nombreArchivo = "C:/Users/sears/OneDrive/Documentos/NetBeansProjects/projectFinalParallel/src/main/java/projectfinalparallel/";
     ContadorDePalabrasHilos contadorHilos=new ContadorDePalabrasHilos();
     int numCifrado=10000;
     

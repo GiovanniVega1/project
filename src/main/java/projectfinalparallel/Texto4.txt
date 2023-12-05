@@ -1,0 +1,2070 @@
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.
+5
+
+6
+
+Los temas tratados aquí son indispensables para comprender el gran cam-
+po de estudio de la solución de problemas mediante el uso de las com-
+putadoras, constituyen los fundamentos de una cantidad interminable de
+
+conocimientos y técnicas que estan en constante desarrollo por la investi-
+gación en las ciencias de la computación.
+
+Otra peculiaridad es que a lo largo del libro se muestran implementa-
+ciones en C++ que no usan memoria dinámica ni estructuras, esto es por los
+
+siguientes motivos:
+A veces al tener el pseudocódigo de un algoritmo, no resulta claro cómo
+
+implementarlo sin escribir demasiado. Por ello es preferible mostrar al-
+gunas implementaciones de ejemplo para que el lector conozca al menos
+
+una implementación corta de cada algoritmo.
+Muchos elementos del lenguaje C++ son muy conocidos e incluso estan
+presentes en otros lenguajes con una sintaxis casi idéntica a la de C++,
+por ello, si se utilizan pocos elementos del lenguaje, es posible que un
+lector que no esté familiarizado con este lenguaje pueda igualmente
+entender los códigos.
+
+No está por demás decir que este libro fue escrito pensando en par-
+ticipantes de un concurso llamado olimpiada de informática, en ese
+
+concurso los participantes tienen tiempo limitado para implementar y
+
+depurar sus programas; las implementaciones son mas fáciles de depu-
+rar con memoria estática.
+
+Al Estudiante
+
+Puede parecer extraño encontrar un libro de algoritmos con estas carac-
+terísticas, ya que dedica muchas páginas a los fundamentos matemáticos y
+
+omite varias cosas que varios libros de algoritmos orientados a licenciatura
+no dejarían pasar por alto, como lo son quicksort, shellsort, listas circulares,
+listas doblemente ligadas y tablas de dispersión entre otras cosas.
+El motivo de esto es simple: este libro no pretende ser una referencia
+ni mucho menos un repaso de los temas de licenciatura; pretende aportar
+las herramientas básicas para aplicar la programación en la resolución de
+problemas.
+
+Por esto mismo puede llegar a ser un recurso valioso ya que permite abor-
+dar la programación desde un punto de vista mas creativo y menos repetitivo,
+
+y al mismo tiempo el enfoque a resolver nuevos problemas es la base de la
+inovación.
+
+7
+Este libro esta hecho para leerse casi como si fuera una novela, un capítulo
+tras otro, y si se decide saltarse uno o mas capítulos se corre el riesgo de que
+mas adelante no se pueda seguir bien. La diferencia con una novela es la gran
+cantidad de problemas de ejemplo, los cuales conviene intentar resolver antes
+de leer la solución.
+
+Al Instructor
+La teoría necesaria para leer este libro de principio a n es muy poca,
+incluso un alumno de preparatoría la debería de saber. Sin embargo, muchos
+problemas que se mencionan, por su dicultad, estan lejos de ser adecuados
+para cualquier alumno de preparatoria e incluso pueden darle dicultades a
+graduados de la universidad; pero resultan bastante adecuados para aquellos
+que buscan algo mas interesante que problemas de rutina o para quienes se
+preparan para concursos de programación.
+El libro está escrito de la manera en la que me gustaría presentar los
+temas si fuera yo el instructor.
+
+Es decir, procura motivar todos los conceptos antes de abordarlos for-
+malmente, intenta nunca dejar huecos, en la teoría; y sobre todo, buscar
+
+aplicaciones creativas a cada tema que se aborda evitando decir muy rápido
+la solución y dando tiempo para especular.
+Para resolver un problema, es necesario plantearse un diálogo consigo
+mismo de preguntas y respuestas. Dicho diálogo también se debe de presentar
+entre alumno e instructor y en muchas partes del libro se intenta plasmar el
+diálogo abordando los razonamientos que podrían llevar al lector a resolver
+cada uno de los ejemplos.
+
+Al Olímpico
+Este libro lo escribí pensando principalmente en los olímpicos, por lo
+que todo lo que se menciona aquí tiene aplicación directa o indirecta con la
+olimpiada de informática.
+
+La olimpiada esta centrada en resolver problemas mediante la progra-
+mación y el diseño de algoritmos; para ello se requieren bases matemáticas
+
+sólidas y un conocimiento profundo(aunque no necesariamente amplio) de
+los algoritmos.
+Es por eso que este libro dedica muchas páginas a dejar claras las bases
+
+matemáticas y a explorar las propiedades de algoritmos; no sólo en intro-
+ducirlos.
+
+8
+
+Los ejemplos se deben de intentar resolver por cuenta propia para apren-
+der de los propios errores e ir desarrollando poco a poco un método propio
+
+para resolver problemas. Si de pronto no logras resolver un ejemplo, puedes
+empezar a leer la solución para darte una idea y continuar por cuenta propia.

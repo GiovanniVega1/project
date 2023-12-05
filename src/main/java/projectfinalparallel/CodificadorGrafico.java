@@ -76,7 +76,7 @@ public class CodificadorGrafico extends javax.swing.JFrame {
 
         cmbEscogerTexto.setBackground(new java.awt.Color(255, 51, 51));
         cmbEscogerTexto.setForeground(new java.awt.Color(255, 255, 255));
-        cmbEscogerTexto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100", "1000", "10000", "100000", "1000000", "2000000" }));
+        cmbEscogerTexto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Texto1", "Texto2", "Texto3", "Texto4", "Texto5", "Texto6" }));
         cmbEscogerTexto.setBorder(null);
         cmbEscogerTexto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -206,7 +206,7 @@ public class CodificadorGrafico extends javax.swing.JFrame {
         String textoCifrar=cmbEscogerTexto.getSelectedItem().toString();
         
         cifradoHill.numHilos=cantidadHilos;
-        cifradoHill.nombreArchivo=cifradoHill.nombreArchivo+textoCifrar+"w.txt";
+        cifradoHill.nombreArchivo=cifradoHill.nombreArchivo+textoCifrar+".txt";
         
         if(!chkConcurrente.isSelected()){
             try {
@@ -260,7 +260,7 @@ public class CodificadorGrafico extends javax.swing.JFrame {
         String textoCifrar=cmbEscogerTexto.getSelectedItem().toString();
        
         cifradoHill.numHilos=cantidadHilos;
-        cifradoHill.nombreArchivo=cifradoHill.nombreArchivo+textoCifrar+"w.txt";
+        cifradoHill.nombreArchivo=cifradoHill.nombreArchivo+textoCifrar+".txt";
                 
         try {
             cifradoHill.contarPalabrasParalelo(server, txtLogs);

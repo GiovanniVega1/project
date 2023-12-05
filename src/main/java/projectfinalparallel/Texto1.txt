@@ -1,0 +1,33 @@
+El propósito general de este libro, es el de introducir al lector en la res-
+olución de problemas de programación así como en el diseño de algoritmos.
+
+Si bien se presentan algoritmos, el objetivo no es saturar el conocimiento
+del lector con una gran cantidad de algoritmos sino mostar sus fundamentos,
+mostrar también maneras inteligentes de usarlos para resolver problemas, y
+sobre todo, lograr que el lector sea capaz de diseñar sus propios algoritmos.
+
+Muchos libros de algoritmos se limitan a explicar algoritmos sin deten-
+erse en su fundamento matemático y sin decir las aplicaciones que tiene en
+
+solución de problemas.
+Algunos otros si explican el fundamento de los algoritmos, pero resultan
+
+inadecuados para estudiantes con poco conocimiento matemático ya que sue-
+len dar por hecho que el lector ya sabe elementos de teoría de conjuntos y
+
+matemáticas discretas.
+Este libro está dirigido a estudiantes con gusto de programar y resolver
+problemas pero que todavía no adquieren las bases matemáticas necesarias
+para poder leer libros de algoritmos con suciente fundamento matemático;
+por lo que se pretende, no solamente explicar los algoritmos, sino también
+darle al lector las herramientas necesarias para entender, analizar y diseñar.
+Por ello, una gran cantidad de páginas se dedican a establecer las bases
+matemáticas que sirven como soporte para la resolución de problemas de
+programación y también muchas páginas se dedican a explicar de dónde
+pueden surgir las ideas para diseñar cada algoritmo.
+Este libro también puede ser leido como un ensayo en el cual doy mi punto
+de vista acerca de lo que es el estudio de los algoritmos, y cómo los algoritmos
+y las matemáticas discretas se entrelazan de tal manera que un problema de
+algoritmos nos lleva a las matemáticas discretas y a su vez problemas de
+matemáticas discretas nos llevan de regreso a los algoritmos a tal grado que
+se vuelven imposibles de separar.

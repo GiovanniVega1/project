@@ -189,12 +189,12 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
-            <StringItem index="0" value="100"/>
-            <StringItem index="1" value="1000"/>
-            <StringItem index="2" value="10000"/>
-            <StringItem index="3" value="100000"/>
-            <StringItem index="4" value="1000000"/>
-            <StringItem index="5" value="2000000"/>
+            <StringItem index="0" value="Texto1"/>
+            <StringItem index="1" value="Texto2"/>
+            <StringItem index="2" value="Texto3"/>
+            <StringItem index="3" value="Texto4"/>
+            <StringItem index="4" value="Texto5"/>
+            <StringItem index="5" value="Texto6"/>
           </StringArray>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
